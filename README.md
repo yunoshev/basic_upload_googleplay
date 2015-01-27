@@ -9,9 +9,24 @@ basic python script for upload apk and obb file to google play market (primary f
 
 ```bash
   $ python upload_apks_to_google_play_console.py service_account_email key_p12_file_path track apk_file_path obb_file_path
+```
 
   service_account_email - XXXXXXXX-YYYYYYYYYYYYYY@developer.gserviceaccount.com
   key_p12_file_path - Key from google developer console
   track - The track. Can be "alpha", "beta", "production"
   apk_file_path - path to apk file
   obb_file_path - path to obb file, in this version must have "bin" extension
+
+
+# TODO:
+
+* Fix follow exception if try upload obb with "obb" extension
+```bash
+Traceback (most recent call last):
+  File "basic_upload_apks.py", line 111, in <module>
+    main(sys.argv)
+  File "basic_upload_apks.py", line 88, in main
+    media_body=obb_file).execute()
+  File "/usr/local/lib/python2.7/site-packages/googleapiclient/discovery.py", line 684, in method
+    raise UnknownFileType(media_filename)
+```
