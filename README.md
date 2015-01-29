@@ -3,31 +3,22 @@ basic python script for upload apk and obb file to google play market (primary f
 
 # Usage:
 
-1. pip install google-api-python-client httplib2
+1. [pip](https://pip.pypa.io/en/latest/installing.html) install google-api-python-client httplib2 PyOpenSSL
 
 2. Execute the script
 
 ```bash
-  $ python upload_apks_to_google_play_console.py service_account_email key_p12_file_path track apk_file_path obb_file_path
+  $ python upload_apks_to_google_play_console.py path_to_folder_with_apks [--recursive] service_account package_name
+                                                 [obb_postfix] [track] [key_file]
 ```
 
-  * service_account_email - XXXXXXXX-YYYYYYYYYYYYYY@developer.gserviceaccount.com
-  * key_p12_file_path - Key from google developer console
-  * track - The track. Can be "alpha", "beta", "production"
-  * apk_file_path - path to apk file
-  * obb_file_path - path to obb file, in this version must have "bin" extension
-
+  * path_to_folder_with_apks - path to folder with apk/obb files
+  * service_account_email - xxxxxxxxxxxx-yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy@developer.gserviceaccount.com
+  * package_name - app package name
+  * obb_postfix - postfix to search for obb files - for apk file takes its basename without extension and append this postfix, if the file exists it upload as obb file. By default "main.obb"
+  * track - the track. Can be "alpha", "beta", "production". By default is "alpha"
+  * key_file - the path to p12 credentials key. By default is "key.p12"
 
 # TODO:
 
-* Fix follow exception if try upload obb with "obb" extension
-
-```bash
-Traceback (most recent call last):
-  File "basic_upload_apks.py", line 111, in <module>
-    main(sys.argv)
-  File "basic_upload_apks.py", line 88, in main
-    media_body=obb_file).execute()
-  File "/usr/local/lib/python2.7/site-packages/googleapiclient/discovery.py", line 684, in method
-    raise UnknownFileType(media_filename)
-```
+* Take package_name from apk file??
