@@ -7,10 +7,7 @@ basic python script for upload apk and obb file to google play market (primary f
 
 2. Execute the script
 
-```bash
-  $ python upload_apks_to_google_play_console.py path_to_folder_with_apks [--recursive] service_account package_name
-                                                 [obb_postfix] [track] [key_file]
-```
+  $ python upload_apks_to_google_play_console.py path_to_folder_with_apks [--recursive] service_account package_name [obb_postfix] [track] [key_file]
 
   * path_to_folder_with_apks - path to folder with apk/obb files
   * service_account_email - xxxxxxxxxxxx-yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy@developer.gserviceaccount.com
